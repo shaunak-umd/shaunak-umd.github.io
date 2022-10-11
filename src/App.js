@@ -1,7 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import Chart from './Chart.js';
+
+
 
 function App() {
+
+
+  fetch("https://hp-api.herokuapp.com/api/characters")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.log(error);
+        }
+      )
+
+
+
+
+  
+
+
+
   return (
     <div className="App">
       {/* <div className='text-gray-800 p-6 shadow-lg font-bold'>Welcome to Shaunak's website</div>
@@ -23,6 +49,9 @@ function App() {
         <div>Logo goes here</div>
         <div>Navigation links go here</div>
       </header>
+
+        <Chart />
+      
 
       <div className='p-10'>
         <div className='text-2xl font-bold m-10'>The heading goes here</div>
